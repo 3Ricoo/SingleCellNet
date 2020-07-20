@@ -1,1 +1,1 @@
-This is new beginning for SingleCellNet
+This is a new beginning for SingleCellNet
