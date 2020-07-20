@@ -1,0 +1,4 @@
+# ignore some files
+.log
+.ipynb_checkpoints
+.idea
