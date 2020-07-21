@@ -9,6 +9,7 @@ the
 import numpy as np
 import pandas as pd
 import time
+import matplotlib.pyplot as plt
 
 np.random.seed(2)  # reproducible
 
@@ -20,7 +21,7 @@ ALPHA = 0.1     # learning rate
 GAMMA = 0.9    # discount factor
 MAX_EPISODES = 13   # maximum episodes
 FRESH_TIME = 0.03    # fresh time for one move
-ATTRACTORS = '000'
+ATTRACTORS = '000'  # attractors
 
 def build_q_table(n_states, actions):
     table = pd.DataFrame(
@@ -96,7 +97,7 @@ def rl():
         step_counter = 0
         S = np.random.randint(1, N_STATES)
         is_terminated = False
-        # update_env(S, episode, step_counter)
+        update_env(S, episode, step_counter)
         while not is_terminated:
 
             A = choose_action(S, q_table)
@@ -113,6 +114,7 @@ def rl():
 
             update_env(S, episode, step_counter+1)
             step_counter += 1
+
     return q_table
 
 
@@ -120,3 +122,7 @@ if __name__ == "__main__":
     q_table = rl()
     print('\r\nQ-table:\n')
     print(q_table)
+    # print(R_list)
+    #plt.plot(range(MAX_EPISODES), R_list)
+    #plt.show()
+
